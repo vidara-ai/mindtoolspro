@@ -1,9 +1,13 @@
 
 import React from 'react';
 
-const CTA: React.FC = () => {
+interface CTAProps {
+  onStart?: () => void;
+}
+
+const CTA: React.FC<CTAProps> = ({ onStart }) => {
   return (
-    <section id="pricing" className="py-32 px-6 relative">
+    <section className="py-32 px-6 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-600/5 to-cyan-500/5 -z-10"></div>
       
       <div className="max-w-4xl mx-auto glass p-12 md:p-20 rounded-[3rem] text-center space-y-10 relative overflow-hidden">
@@ -19,11 +23,14 @@ const CTA: React.FC = () => {
         </p>
 
         <div className="space-y-6">
-          <button className="px-12 py-6 bg-cyan-500 text-slate-950 font-black text-2xl rounded-2xl hover:bg-cyan-400 hover:scale-105 active:scale-95 transition-all glow-cyan shadow-2xl">
+          <button 
+            onClick={onStart}
+            className="px-12 py-6 bg-cyan-500 text-slate-950 font-black text-2xl rounded-2xl hover:bg-cyan-400 hover:scale-105 active:scale-95 transition-all glow-cyan shadow-2xl"
+          >
             Acessar MindTools Pro agora
           </button>
           
-          <div className="flex items-center justify-center gap-8 text-sm text-slate-400 font-bold uppercase tracking-widest">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-slate-400 font-bold uppercase tracking-widest">
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
