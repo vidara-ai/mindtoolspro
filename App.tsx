@@ -1,6 +1,6 @@
 
-import React, { useState, useEffect } from 'react';
-import LandingPage from './components/LandingPage';
+import React, { useState } from 'react';
+import Hero from './components/Hero';
 import Auth from './components/Auth';
 import Dashboard from './components/Dashboard';
 
@@ -9,15 +9,10 @@ type ViewState = 'landing' | 'auth' | 'dashboard';
 function App() {
   const [view, setView] = useState<ViewState>('landing');
 
-  // Scroll to top when changing views
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [view]);
-
   return (
     <div className="min-h-screen selection:bg-cyan-500/30">
       <main>
-        {view === 'landing' && <LandingPage onStart={() => setView('auth')} />}
+        {view === 'landing' && <Hero onStart={() => setView('auth')} />}
         {view === 'auth' && (
           <Auth 
             onLoginSuccess={() => setView('dashboard')} 
